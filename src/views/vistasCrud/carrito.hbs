@@ -1,0 +1,57 @@
+
+  <div class="container mx-auto px-4 py-10">
+    <h2 class="text-xl font-bold mb-4">Carrito de Compra</h2>
+    <table class="table-auto w-full border-collapse border border-gray-300">
+      <thead>
+        <tr>
+          <th class="px-4 py-2 border border-gray-300 text-left">Imagen</th>
+          <th class="px-4 py-2 border border-gray-300 text-left">Título</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Cantidad</th>
+          <th class="px-4 py-2 border border-gray-300 text-right">Precio</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="lista-productos">
+        </tbody>
+    </table>
+    <div class="flex justify-between mt-4">
+      <p class="text-gray-700">Total: <span id="total-carrito">0</span></p>
+      <div class="flex">
+        <a href="/listar_libro" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2">Seguir comprando</a>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Comprar ahora</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    // Función para actualizar la cantidad de productos en el carrito
+function actualizarCarrito(cantidad) {
+  document.getElementById('carrito-cantidad-desplegable').textContent = cantidad;
+}
+
+// Función para agregar un producto al carrito (ejemplo)
+function agregarProducto(producto) {
+  // Crear elemento `li` para el producto
+  const li = document.createElement('li');
+  li.classList.add('list-group-item');
+
+  // Agregar imagen, nombre y precio del producto
+  li.innerHTML = `
+    <img src="${producto.imagen}" alt="${producto.nombre}" class="img-fluid mr-2" style="width: 40px;">
+    ${producto.nombre}
+    <span class="float-right">$${producto.precio}</span>
+  `;
+
+  // Agregar el elemento `li` a la lista del carrito
+  document.getElementById('lista-carrito').appendChild(li);
+
+  // Actualizar la cantidad de productos en el carrito
+  actualizarCarrito(cantidadEnCarrito + 1);
+}
+
+// Si se tiene información sobre productos en el carrito, agregarlos al cargar la página
+if (productosEnCarrito) {
+  productosEnCarrito.forEach(producto => agregarProducto(producto));
+}
