@@ -19,6 +19,7 @@ router.get('/editar/:id', userController.editar);
 router.post('/editar/:id', userController.actualizar);
 //CRUD DE LIBROS
 router.get('/listar_libro', userController.listar_libro);
+router.get('/listar_libros', userController.listar_libros);
 router.get('/agregar_libro', userController.agregar_libro);
 router.post('/agregar_libro', userController.guardar_libro);
 router.post('/eliminar_libro', userController.eliminar_libro);

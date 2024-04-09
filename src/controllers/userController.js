@@ -97,6 +97,17 @@ function listar_libro(req, res) {
     });
 }
 
+function listar_libros(req, res) {
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM libros', (err, libros) => {
+            if (err) {
+                res.json(err);
+            }
+            res.json(libros)
+        })
+    });
+}
+
 function agregar_libro(req, res) {
     res.render('vistasCrud/agregar_libro');
 }
@@ -159,6 +170,7 @@ module.exports = {
     actualizar: actualizar,
     //LIBROS
     listar_libro: listar_libro,
+    listar_libros: listar_libros,
     agregar_libro: agregar_libro,
     guardar_libro:guardar_libro ,
     eliminar_libro: eliminar_libro,
