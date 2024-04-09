@@ -35,7 +35,7 @@
               <option value="8">8</option>
               <option value="9">9</option>
             </select>
-            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Agregar al carrito</button>
+            <button onclick="agregarItem" class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -44,3 +44,14 @@
   <br>
   <a href="/agregar_libro" class="font-semibold hover:text-red-700 py-3 px-4 rounded-md">Agregar Libro</a>
 </div>
+
+
+<script>
+  if(!localStorage.getItem('cartItems')) {
+    localStorage.setItem("cartItems", "[]");
+  }
+
+  function agregarItem() {
+    const cartItems = localStorage.getItem("cartItems");
+  }
+</script>
