@@ -43,7 +43,7 @@
       .then(data => {
         let rows = ''; 
         cartItems.forEach((cartItem, indx) => {
-          console.log(data[indx]);
+          console.log('Tabla libros', data[indx]);
           if(cartItem.itemId == data[indx].id ) {
             rows += `<tr class="border-b border-gray-300 py-2">
               <td><img class='mx-auto w-20 h-20 my-2' src='${data[indx].url}'/></td>
