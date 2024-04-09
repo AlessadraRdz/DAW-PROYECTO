@@ -9,6 +9,7 @@ router.get('/login', userController.login);
 router.post('/confirma', userController.confirma);
 //CARRITO
 router.post('/carrito', userController.carrito);
+router.get('/carrito', userController.carritoView);
 //CRUD DE USUARIOS
 router.get('/listar', userController.listar);
 router.get('/agregar', userController.agregar);

@@ -25,7 +25,9 @@ function carrito(req, res) {
     });
 }
 
-
+function carritoView(req, res) {
+    res.render('vistasCrud/carrito')
+}
 
 //CRUD DE USUARIOS
 function listar(req, res) {
@@ -147,6 +149,7 @@ module.exports = {
     confirma : confirma,
     //CARRITO
     carrito : carrito,
+    carritoView: carritoView,
     //USUARIOS
     listar: listar,
     agregar: agregar,
