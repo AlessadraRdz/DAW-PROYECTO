@@ -6,10 +6,11 @@ function login(req, res) {
 function confirma(req, res) {
     const { fname, password, rol } = req.body;
     req.getConnection((err, conn) => {
-      const sql = "CALL verificarUsuario(?, ?, ?)";
+      const sql = "SELECT * from users WHERE username = ? AND password = ? AND rol = ?";
       conn.query(sql, [fname, password, rol], (err, results) => {  
-        const user = results[0][0];
-        res.redirect('/listar_libros');
+        const user = results[0];
+        console.log(user.rol);
+        res.redirect(`/listar_libro?rol=${user.rol}`);
     })
 });
 }
